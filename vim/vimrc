@@ -1,0 +1,100 @@
+filetype on
+filetype indent on
+filetype plugin on
+syntax on
+let mapleader=","
+
+set background=dark
+set nocompatible 
+set number
+set encoding=utf-8
+set mouse=a     
+set backspace=2 
+set hidden      
+set directory=$DOTFILES/vim/swapfiles// 
+set clipboard=unnamed
+set tabstop=2      
+set softtabstop=2  
+set shiftwidth=2   
+set expandtab      
+set smarttab       
+set shiftround     
+set hlsearch 
+set ignorecase
+set smartcase
+set foldmethod=indent
+set foldlevelstart=99  
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+" nnoremap <C-Space> za " Toggle fold
+imap § <esc><esc>
+nmap § <esc><esc>
+nnoremap <leader>u gUiw 
+noremap <C-J> ddp 
+nnoremap <C-K> kddpk 
+nnoremap <C-N> :bnext<CR> 
+nnoremap <C-P> :bprev<CR> 
+nnoremap <C-B> :History<CR> 
+nnoremap <C-G> :FZF<CR>
+nnoremap <C-S> :shell<CR> 
+nnoremap <leader>g :OpenGithub<CR>
+nnoremap <leader>tn :TestNearest<CR>
+nnoremap <leader>s :source ~/.vimrc<CR>
+nnoremap <leader>v :belowright 15sp ~/.vimrc<CR>
+nnoremap <leader>a *:AgFromSearch<CR>
+nnoremap <leader>n :NERDTree<CR>
+nnoremap <leader>N :NERDTree %<CR> 
+inoremap <tab> <C-P>
+nnoremap <leader>f :ALEFirst<CR>
+nnoremap <ESC><ESC> :noh<RETURN>
+nmap <leader>c :BCommits<CR>
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+autocmd FileType ruby nnoremap <buffer> <leader>b orequire "pry"; binding.pry<ESC>
+autocmd FileType python nnoremap <buffer> <leader>b oimport pdb; pdb.set_trace()<ESC>
+
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
+Plug 'leafgarland/typescript-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Valloric/MatchTagAlways'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-endwise'
+Plug 'dense-analysis/ale'
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-commentary'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'k0kubun/vim-open-github'
+Plug 'janko-m/vim-test'
+Plug 'tjammer/blayu.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'tpope/vim-dispatch'
+Plug 'Rigellute/rigel'
+Plug 'cespare/vim-toml'
+Plug 'tpope/vim-rails'
+Plug 'morhetz/gruvbox'
+Plug 'rust-lang/rust.vim'
+Plug 'sharkdp/bat'
+call plug#end()
+
+colorscheme gruvbox 
+let g:ale_fixers = {'ruby': ['rubocop']}

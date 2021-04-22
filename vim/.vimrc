@@ -30,6 +30,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 imap § <esc><esc>
 nmap § <esc><esc>
 xnoremap § <esc><esc>
+nnoremap <Space> za
 nnoremap <leader>u gUiw 
 nnoremap <Leader>+ :let @+=expand('%:p')<CR>
 noremap <C-J> ddp 
@@ -54,11 +55,14 @@ noremap <leader>2 2gt
 noremap <leader>3 3gt
 noremap <leader>4 4gt
 noremap <leader>0 :tablast<cr>
+imap ,/ </<C-X><C-O>
 
 call plug#begin('~/.vim/plugged')
+Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-fugitive'
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/nerdtree'
+Plug 'k0kubun/vim-open-github'
 Plug 'Valloric/MatchTagAlways'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -66,13 +70,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'christoomey/vim-tmux-runner'
-Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-endwise'
 Plug 'dense-analysis/ale'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-commentary'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'k0kubun/vim-open-github'
 Plug 'janko-m/vim-test'
 Plug 'tjammer/blayu.vim'
 Plug 'mhartington/oceanic-next'
@@ -83,8 +85,11 @@ Plug 'tpope/vim-rails'
 Plug 'rust-lang/rust.vim'
 Plug 'sharkdp/bat'
 Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
+
 call plug#end()
 
-highlight Comment ctermfg=green
 colorscheme peachpuff
+highlight Comment ctermfg=green
+
 let g:ale_fixers = {'ruby': ['rubocop']}

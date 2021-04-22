@@ -5,8 +5,9 @@ linux: vim-linux zsh vim-plug
 
 vim-mac:
 	ln -svfh $(DIR)/vim ~/.vim
-	ln -svf $(DIR)/vim/vimrc ~/.vimrc
+	ln -svf $(DIR)/vim/.vimrc ~/.vimrc
 	ln -svf $(DIR)/.tmux.conf ~/.tmux.conf
+	ln -svf $(DIR)/bash/.bashrc ~/.bashrc
 
 vim-linux:
 	ln -svf $(DIR)/vim ~/.vim

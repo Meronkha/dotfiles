@@ -2,10 +2,11 @@
 source /usr/local/opt/nvm/nvm.sh
 
 # Currently opting to use an alias rather than fix .vimrc souring issue.
-alias vi="vim -u $DOTFILES/vim/vimrc"
+# alias vi="vim -u $DOTFILES/vim/vimrc"
 
 alias vimrc="vim ~/.vimrc"
-alias bashrc="vim ~/.bash_profile"
+alias bashp="vim ~/.bash_profile"
+alias bashrc="vim ~/.bashrc"
 alias penv="vim ~/.private-env"
 alias sb="source ~/.bash_profile"
 
@@ -44,9 +45,18 @@ function drps(){
   bundle exec rails c
 }
 
+function drns(){
+  eval $(draupnir new)
+  export PGDATABASE=gc_nexus_live
+  bundle exec spring stop
+  bundle exec rails c
+}
 function pys(){ cd && cd gc/payments-service
 }
 function frnt(){ cd && cd gc/frontier
 }
 function nxs(){ cd && cd gc/nexus
+}
+function obg(){ cd && cd gc/open-banking-gateway
+
 }

@@ -1,5 +1,4 @@
 #!/bin/bash
-source $DOTFILES/bash/aliases
 source /usr/local/opt/nvm/nvm.sh
 
 # Currently opting to use an alias rather than fix .vimrc souring issue.

@@ -1,5 +1,6 @@
-
+#!/bin/bash
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+source $DOTFILES/bash/.aliases
 
 export CLICOLOR=1
 export PS1="omer\[\e[31m\] \[\e[m\]\[\e[31m\]:\[\e[m\]\[\e[31m\]:\[\e[m\] \[\e[32m\]\w\[\e[m\] \[\e[34m\]»\[\e[m\] "
@@ -9,6 +10,7 @@ export LSCOLORS=cxgxfxexbxegedabagacad
 export DOTFILES=$HOME/dotfiles
 export EDITOR='vim'
 export VISUAL='vim'
+
 PATH=""
 PATH="$PATH:/$DOTFILES/vim"
 PATH="$PATH:/usr/local/opt/python/libexec/bin"
@@ -29,7 +31,6 @@ export HOMEBREW_NO_ANALYTICS=1
 
 
 [ -f ~/.private-env ] && source ~/.private-env
-[ -f .aliases ] && source .aliases
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/omer/google-cloud-sdk/path.bash.inc' ]; then . '/Users/omer/google-cloud-sdk/path.bash.inc'; fi

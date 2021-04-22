@@ -1,11 +1,12 @@
 DIR=$(HOME)/dotfiles
 
-mac: vim-mac zsh vim-plug
+mac: vim-mac bash vim-plug
 linux: vim-linux zsh vim-plug
 
 vim-mac:
 	ln -svfh $(DIR)/vim ~/.vim
 	ln -svf $(DIR)/vim/vimrc ~/.vimrc
+	ln -svf $(DIR)/.tmux.conf ~/.tmux.conf
 
 vim-linux:
 	ln -svf $(DIR)/vim ~/.vim
@@ -15,13 +16,10 @@ vim-plug:
 	vim +PlugInstall +:qa
 	mkdir -p $(DIR)/vim/swapfiles
 
-zsh: $(HOME)/.oh-my-zsh
-	ln -svf $(DIR)/zsh/zshrc ~/.zshrc
-	ln -svf $(DIR)/zsh/aliases ~/.aliases
+bash: 
+	ln -svf $(DIR)/bash/.bashrc ~/.bashrc
+	ln -svf $(DIR)/bash/.aliases ~/.aliases
 	git submodule update --init --recursive
-
-$(HOME)/.oh-my-zsh:
-	$(DIR)/scripts/install-oh-my-zsh
 
 # To test setup from scratch
 teardown: teardown-vim teardown-zsh

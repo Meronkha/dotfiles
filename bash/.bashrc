@@ -10,6 +10,7 @@ export DOTFILES=$HOME/dotfiles
 export EDITOR='vim'
 export VISUAL='vim'
 PATH=""
+PATH="$PATH:/$DOTFILES/vim"
 PATH="$PATH:/usr/local/opt/python/libexec/bin"
 PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin"
 PATH="$PATH:/usr/local/opt/ruby/bin"
@@ -31,7 +32,7 @@ export HOMEBREW_NO_ANALYTICS=1
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/okhan/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/okhan/Downloads/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/Users/omer/google-cloud-sdk/path.bash.inc' ]; then . '/Users/omer/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/okhan/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/okhan/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '/Users/omer/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/omer/google-cloud-sdk/completion.bash.inc'; fi

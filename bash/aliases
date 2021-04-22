@@ -1,48 +1,34 @@
 #!/bin/bash
+source $DOTFILES/bash/aliases
+source /usr/local/opt/nvm/nvm.sh
+
+# Currently opting to use an alias rather than fix .vimrc souring issue.
+alias vi="vim -u $DOTFILES/vim/vimrc"
+
 alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bash_profile"
 alias penv="vim ~/.private-env"
 alias sb="source ~/.bash_profile"
-alias rmswap="rmc ./**/.*.sw*"
-alias berc="bundle exec rails console"
 
-# GC specific
+# Remove a swap files
+alias rmswap="rmc ./**/.*.sw*"
+
+# Ruby/Rails Specific
 alias dcopa='git diff origin/master --name-only --diff-filter=ACMRTUXB | grep '\''.*.rb$'\'' | xargs bundle exec rubocop -a'
 alias bers="bundle exec rspec"
+alias berc="bundle exec rails console"
 
 # Copy a file to clipboard
 function copy() {
   cat $@ | pbcopy
 }
 
-# Prompts with the files you are trying to delete
-# function rmc() {
-#   ls $@;
-#   if [ $# = 0 ]
-#   then
-#     echo "\nWarning: You are trying to delete everything in the current directory."
-#   fi
-#   echo "\nDo you want to delete these files? [y/n]: ";
-#   read Answer;
-#   if [ $Answer = 'y' ]
-#   then
-#     rm -rf $@;
-#     echo "\nIt's all gone.";
-#   else
-#     echo "\nPhew, good decision.";
-#   fi
-# } # A simple `watch` function, but with colour function watch2() {
-#   while true; do
-#     clear
-#     eval $1
-#     sleep 2
-#   done
-# }
-
+# DRAUPNIR Configs
 function cleanup_draupnir() {
   for i in $(draupnir instances list | cut -d" " -f1); do draupnir instances destroy $i; done
 }
 
+# -> Frontier config.
 function drfr(){
   eval $(draupnir new)
   export PGDATABASE=gc_banking_integrations_live
@@ -51,6 +37,7 @@ function drfr(){
   bundle exec rails c
 }
 
+# -> Payments-service config.
 function drps(){
   eval $(draupnir new)
   export PGDATABASE=gc_paysvc_live
@@ -58,17 +45,9 @@ function drps(){
   bundle exec rails c
 }
 
-function pys(){
-  cd 
-  cd gc/payments-service
+function pys(){ cd && cd gc/payments-service
 }
-
-function frnt(){
-  cd 
-  cd gc/frontier
+function frnt(){ cd && cd gc/frontier
 }
-
-function nexus(){
-  cd 
-  cd gc/nexus
+function nxs(){ cd && cd gc/nexus
 }

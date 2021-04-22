@@ -29,7 +29,7 @@ export HOMEBREW_NO_ANALYTICS=1
 
 
 [ -f ~/.private-env ] && source ~/.private-env
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f .aliases ] && source .aliases
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/omer/google-cloud-sdk/path.bash.inc' ]; then . '/Users/omer/google-cloud-sdk/path.bash.inc'; fi
